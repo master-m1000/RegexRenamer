@@ -127,6 +127,7 @@
         TsLblStatus.Text = statusText
         TsPbStatus.Style = style
         TsPbStatus.Value = progress
+        Update()
     End Sub
 
     ''' <summary>
@@ -141,6 +142,7 @@
         TsPbStatus.Maximum = maxProgress
         TsPbStatus.Style = style
         TsPbStatus.Value = progress
+        Update()
     End Sub
 #End Region
 
