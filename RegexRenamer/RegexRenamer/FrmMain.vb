@@ -77,10 +77,10 @@
         LvPreview.Items.Clear()
 
         If sender Is TbDirectory Then
+            fileList.Clear()
             If IO.Directory.Exists(TbDirectory.Text) = True And TbDirectory.Text.Count > 2 Then
                 TbDirectory.ForeColor = SystemColors.WindowText
                 SetStatus("Scanning directory...", 0, ProgressBarStyle.Marquee)
-                fileList.Clear()
                 For Each file In IO.Directory.GetFiles(TbDirectory.Text)
                     fileList.Add(file)
                 Next
