@@ -82,7 +82,7 @@
                 TbDirectory.ForeColor = SystemColors.WindowText
                 SetStatus("Scanning directory...", 0, ProgressBarStyle.Marquee)
                 For Each file In IO.Directory.GetFiles(TbDirectory.Text)
-                    fileList.Add(file)
+                    fileList.Add(IO.Path.GetFileName(file))
                 Next
             Else
                 SetStatus("Directory doesn't exist!", 0, ProgressBarStyle.Blocks)
@@ -94,7 +94,7 @@
         SetStatus("Refreshing preview...", 0, ProgressBarStyle.Marquee)
         For Each file In fileList
             Dim lvItem As ListViewItem
-            lvItem = LvPreview.Items.Add(IO.Path.GetFileName(file))
+            lvItem = LvPreview.Items.Add(file)
             Try
                 lvItem.SubItems.AddRange(New String() {GetNewFilename(file)})
             Catch ex As Exception
